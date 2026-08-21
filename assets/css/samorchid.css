@@ -2055,9 +2055,10 @@ footer {
 }
 
 .logo-text {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important; 
+    /* removed absolute positioning to let flexbox center it naturally */
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
 }
 
 }
