@@ -851,6 +851,8 @@ header.scrolled {
     transition: transform 0.4s var(--ease-luxury), 
                 box-shadow 0.4s var(--ease-luxury),
                 border-color 0.4s var(--ease-luxury);
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
@@ -878,6 +880,9 @@ header.scrolled {
 
 .product-card .card-body {
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .card-category {
@@ -914,6 +919,7 @@ header.scrolled {
 .card-actions {
     display: flex;
     gap: 10px;
+    margin-top: auto; /* dorong tombol ke paling bawah kartu */
 }
 
 
