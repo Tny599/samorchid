@@ -8,19 +8,19 @@
    1. DESIGN TOKENS (CSS Variables)
    ---------------------------------------------------------- */
    :root {
-    --pink-flower: #E091B1;
-    --pink-light: #F5D5E3;
-    --orange-pastel: #EDD08A;
-    --cream-palette: #FDFBF0;
-    --cream-dark: #F5EFDA;
-    --green-natural: #9AB34E;
-    --green-dark: #7A9340;
+    --pink-flower: #C8729A;
+    --pink-light: #F0D8E4;
+    --orange-pastel: #D5B478;
+    --cream-palette: #F5F1E4;
+    --cream-dark: #EDE5CC;
+    --green-natural: #8FA848;
+    --green-dark: #6E8A3A;
     --text-dark: #1A261B;
     --text-muted: #6B7E5A;
     --footer-bg: #2C3E2D;
     --white: #FFFFFF;
-    --dusty-pink: #F9EAEF;
-
+    --dusty-pink: #F5E6ED;
+    --section-alt: #F9F7F0;
 
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(26, 38, 27, 0.06);
@@ -124,7 +124,8 @@ h2 strong {
 
 p {
     color: var(--text-muted);
-    line-height: 1.7;
+    line-height: 1.8;
+    font-weight: 400;
 }
 
 .section-tag {
@@ -167,6 +168,20 @@ header {
     z-index: 2001;
     background: transparent;
     transition: all 0.5s var(--ease-luxury);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: 1px;
 }
 
 header.scrolled {
@@ -236,7 +251,61 @@ header.scrolled {
     width: 46px;
 }
 
-/* Menu Overlay */
+/* ----------------------------------------------------------
+   5.5 TOP NAVIGATION (Desktop)
+   ---------------------------------------------------------- */
+.nav-links {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s var(--ease-luxury);
+}
+
+.nav-links a:hover,
+.nav-links a.active-link {
+    color: var(--green-natural);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--pink-flower);
+    transition: width 0.4s var(--ease-luxury);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active-link::after {
+    width: 100%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* ----------------------------------------------------------
+   5.6 MOBILE NAVIGATION (Dropdown)
+   ---------------------------------------------------------- */
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -258,103 +327,56 @@ header.scrolled {
     visibility: visible;
 }
 
-/* Side Menu */
-.side-menu {
+.mobile-nav {
     position: fixed;
-    top: 0;
-    left: -100%;
-    width: 450px;
-    max-width: 100%;
-    height: 100vh;
+    top: -100%;
+    left: 0;
+    width: 100%;
     background-color: var(--cream-palette);
     z-index: 2000;
     box-shadow: var(--shadow-xl);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 80px 60px;
-    transition: left 0.7s cubic-bezier(0.77, 0, 0.175, 1);
-    overflow-y: auto;
+    padding: 100px 5% 40px;
+    transition: top 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.side-menu.active {
-    left: 0;
+.mobile-nav.active {
+    top: 0;
 }
 
-.menu-subtitle {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    color: var(--green-natural);
-    text-transform: uppercase;
-    margin-bottom: 35px;
-}
-
-.side-menu ul {
-    margin-bottom: 50px;
-}
-
-.side-menu ul li {
-    margin-bottom: 25px;
-    transform: translateY(30px);
+.mobile-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 28px;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond', serif;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(26, 38, 27, 0.05);
+    transform: translateY(-20px);
     opacity: 0;
-    transition: transform 0.6s var(--ease-luxury),
-                opacity 0.6s var(--ease-luxury);
+    transition: color 0.3s ease,
+                transform 0.4s var(--ease-luxury),
+                opacity 0.4s var(--ease-luxury);
 }
 
-.side-menu.active ul li:nth-child(1) { transition-delay: 0.15s; }
-.side-menu.active ul li:nth-child(2) { transition-delay: 0.30s; }
-.side-menu.active ul li:nth-child(3) { transition-delay: 0.45s; }
-.side-menu.active ul li:nth-child(4) { transition-delay: 0.60s; }
-.side-menu.active ul li:nth-child(5) { transition-delay: 0.75s; }
-.side-menu.active ul li:nth-child(6) { transition-delay: 0.90s; }
-
-.side-menu.active ul li {
+.mobile-nav.active a {
     transform: translateY(0);
     opacity: 1;
 }
 
-.side-menu ul li a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-size: 34px;
-    font-weight: 300;
-    font-family: 'Cormorant Garamond', serif;
-    display: inline-block;
-    position: relative;
-    transition: color 0.3s ease,
-                transform 0.3s var(--ease-luxury);
-}
+/* Staggered mobile nav animation */
+.mobile-nav.active a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-nav.active a:nth-child(2) { transition-delay: 0.15s; }
+.mobile-nav.active a:nth-child(3) { transition-delay: 0.2s; }
+.mobile-nav.active a:nth-child(4) { transition-delay: 0.25s; }
+.mobile-nav.active a:nth-child(5) { transition-delay: 0.3s; }
+.mobile-nav.active a:nth-child(6) { transition-delay: 0.35s; }
 
-.side-menu ul li a:hover {
+.mobile-nav a:hover,
+.mobile-nav a.active-link {
     color: var(--pink-flower);
-    transform: translateX(12px);
-}
-
-.side-menu ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--pink-flower);
-    transition: width 0.4s var(--ease-luxury);
-}
-
-.side-menu ul li a:hover::after {
-    width: 100%;
-}
-
-.side-menu ul li a.active-link {
-    color: var(--green-natural);
-    font-weight: 600;
-}
-
-.side-menu-cta {
-    margin-top: auto;
-    padding-top: 30px;
-    border-top: 1px solid rgba(26, 38, 27, 0.08);
+    padding-left: 10px;
 }
 
 
@@ -822,17 +844,19 @@ header.scrolled {
    9. PRODUCT CARDS
    ---------------------------------------------------------- */
 .product-card {
-    background: var(--white);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.5s var(--ease-luxury),
-                box-shadow 0.5s var(--ease-luxury);
+    background-color: var(--white);
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(26, 38, 27, 0.05);
+    transition: transform 0.4s var(--ease-luxury), 
+                box-shadow 0.4s var(--ease-luxury),
+                border-color 0.4s var(--ease-luxury);
 }
 
 .product-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
+    border-color: rgba(200, 114, 154, 0.2); /* var(--pink-flower) at 20% */
 }
 
 .product-card .card-image {
@@ -1951,6 +1975,26 @@ footer {
         font-size: 18px;
     }
 
+    .header-content {
+        height: 70px;
+    }
+    
+    .logo-text {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        display: none; /* Hide desktop nav */
+    }
+
+    .mobile-only {
+        display: block; /* Show hamburger */
+    }
+    
+    .menu-btn {
+        display: block;
+    }
+
     .logo-img {
         height: 35px;
     }
@@ -2091,4 +2135,6 @@ footer {
         flex: 0 0 85% !important; /* Lebar kartu 85% agar kartu sebelahnya sedikit terlihat */
         scroll-snap-align: center; /* Memastikan kartu berhenti tepat di tengah layar */
     }
-}
+
+
+.category-section, .news-section { background-color: var(--section-alt); }

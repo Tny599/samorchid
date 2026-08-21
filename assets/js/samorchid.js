@@ -8,31 +8,31 @@
     // ----------------------------------------------------------
     // 1. HAMBURGER MENU TOGGLE
     // ----------------------------------------------------------
-    const menuToggle = document.querySelector('.menu-btn');
-    const sideNav = document.querySelector('.side-menu');
+    const menuBtn = document.querySelector('.menu-btn');
+    const mobileNav = document.querySelector('.mobile-nav');
     const menuOverlay = document.querySelector('.menu-overlay');
 
-    if (menuToggle && sideNav && menuOverlay) {
-        menuToggle.addEventListener('click', function () {
-            menuToggle.classList.toggle('active');
-            sideNav.classList.toggle('active');
+    if (menuBtn && mobileNav && menuOverlay) {
+        menuBtn.addEventListener('click', function () {
+            menuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active');
             menuOverlay.classList.toggle('active');
-            document.body.style.overflow = sideNav.classList.contains('active') ? 'hidden' : '';
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
         });
 
         // Close menu on overlay click
         menuOverlay.addEventListener('click', function () {
-            menuToggle.classList.remove('active');
-            sideNav.classList.remove('active');
+            menuBtn.classList.remove('active');
+            mobileNav.classList.remove('active');
             menuOverlay.classList.remove('active');
             document.body.style.overflow = '';
         });
 
         // Close menu on Escape key
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && sideNav.classList.contains('active')) {
-                menuToggle.classList.remove('active');
-                sideNav.classList.remove('active');
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                menuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
                 menuOverlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
@@ -228,7 +228,7 @@
      * @param {string} phoneNumber - WhatsApp phone number (with country code, no +)
      */
     function openWhatsApp(productName, productPrice, phoneNumber) {
-        phoneNumber = phoneNumber || '6281234567890';
+        phoneNumber = phoneNumber || '6281356784532';
 
         const message = [
             '🌸 Halo SAMOrchid!',
@@ -254,7 +254,7 @@
                 e.preventDefault();
                 const productName = btn.getAttribute('data-product') || 'Anggrek Premium';
                 const productPrice = btn.getAttribute('data-price') || '';
-                const phoneNumber = btn.getAttribute('data-phone') || '6281234567890';
+                const phoneNumber = btn.getAttribute('data-phone') || '6281356784532';
                 openWhatsApp(productName, productPrice, phoneNumber);
             });
         });
@@ -267,7 +267,7 @@
         whatsappCTAs.forEach(function (btn) {
             btn.addEventListener('click', function (e) {
                 e.preventDefault();
-                const phoneNumber = btn.getAttribute('data-phone') || '6281234567890';
+                const phoneNumber = btn.getAttribute('data-phone') || '6281356784532';
                 const message = encodeURIComponent(
                     '🌸 Halo SAMOrchid!\n\nSaya ingin bertanya mengenai koleksi anggrek premium Anda.\n\nTerima kasih! 🙏'
                 );
@@ -296,13 +296,15 @@
                     block: 'start'
                 });
 
-                // Close side menu if open
-                if (sideNav && sideNav.classList.contains('active')) {
-                    menuToggle.classList.remove('active');
-                    sideNav.classList.remove('active');
-                    menuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
+                // Close menu on Escape key
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                        menuBtn.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        menuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
             }
         });
     });
