@@ -920,6 +920,7 @@ header.scrolled {
     display: flex;
     gap: 10px;
     margin-top: auto; /* dorong tombol ke paling bawah kartu */
+    justify-content: center; /* tombol rata tengah di dalam kartu */
 }
 
 
