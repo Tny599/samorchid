@@ -2227,3 +2227,45 @@ footer .social-icons a:hover {
     border-top: 1px solid rgba(26, 38, 27, 0.1) !important;
     color: var(--text-dark) !important;
 }
+
+/* =============================================================
+   MOBILE: Koleksi & Berita di Beranda — tampilkan sebagai grid
+   biasa (bukan slider tersembunyi) agar pengunjung tidak bingung
+   ============================================================= */
+@media (max-width: 768px) {
+    /* Hilangkan horizontal scroll pada grid koleksi di beranda */
+    .categories-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        overflow-x: visible !important;
+        scroll-snap-type: none !important;
+        flex-wrap: unset !important;
+        flex-direction: unset !important;
+        gap: 20px !important;
+    }
+
+    /* Hilangkan horizontal scroll pada grid berita di beranda */
+    .news-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        overflow-x: visible !important;
+        scroll-snap-type: none !important;
+        flex-wrap: unset !important;
+        flex-direction: unset !important;
+        gap: 24px !important;
+    }
+
+    /* Reset snap anak-anak elemen */
+    .categories-grid > *, .news-grid > * {
+        scroll-snap-align: none !important;
+        flex: unset !important;
+        min-width: unset !important;
+        width: 100% !important;
+    }
+
+    .news-card {
+        flex: unset !important;
+        min-width: unset !important;
+        width: 100% !important;
+    }
+}
