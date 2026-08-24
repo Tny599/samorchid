@@ -2812,7 +2812,7 @@ footer .social-icons a:hover {
 }
 .care-split-media {
     flex: 1.1;
-    background: url("../images/beranda-jurnal.png") center/cover no-repeat;
+    background: url("../images/merawat kelopak.jpeg") center/cover no-repeat;
     min-height: 400px;
     position: relative;
 }
@@ -2874,7 +2874,7 @@ footer .social-icons a:hover {
 .vision-split-media {
     flex: 1.1;
     /* Single clean high-res photo with no overlapping logos */
-    background: url("../images/berita-pelatihan.jpeg") center/cover no-repeat;
+    background: url("../images/samorchid background.png") center/cover no-repeat;
     min-height: 400px;
     position: relative;
 }
