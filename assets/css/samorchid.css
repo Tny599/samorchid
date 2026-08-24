@@ -8,19 +8,19 @@
    1. DESIGN TOKENS (CSS Variables)
    ---------------------------------------------------------- */
    :root {
-    --pink-flower: #C8729A;
-    --pink-light: #F0D8E4;
+    --pink-flower: #EC7FAA;
+    --pink-light: #FDE8F0;
     --orange-pastel: #D5B478;
-    --cream-palette: #F5F1E4;
-    --cream-dark: #EDE5CC;
+    --cream-palette: #FDFBE7;
+    --cream-dark: #F5EFCC;
     --green-natural: #8FA848;
     --green-dark: #6E8A3A;
     --text-dark: #1A261B;
     --text-muted: #6B7E5A;
-    --footer-bg: var(--green-natural);
+    --footer-bg: #3D5A1E;
     --white: var(--cream-palette);
-    --dusty-pink: #F5E6ED;
-    --section-alt: var(--cream-dark);
+    --dusty-pink: #FDE8F0;
+    --section-alt: #F8F4D8;
 
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(26, 38, 27, 0.06);
@@ -32,6 +32,10 @@
     --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
     --transition-base: 0.4s var(--ease-luxury);
     --transition-slow: 0.8s var(--ease-luxury);
+
+    /* Gradients */
+    --gradient-bg: linear-gradient(180deg, #FDFBE7 0%, #F5EFCC 100%);
+    --pink-gradient: linear-gradient(135deg, #EC7FAA, #D65F8A);
 }
 
 
@@ -58,7 +62,8 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: var(--cream-palette);
+    background: var(--gradient-bg);
+    background-attachment: fixed;
     overflow-x: hidden;
 }
 
@@ -332,7 +337,8 @@ header.scrolled {
     top: -100%;
     left: 0;
     width: 100%;
-    background-color: var(--cream-palette);
+    background: var(--gradient-bg);
+    background-attachment: fixed;
     z-index: 2000;
     box-shadow: var(--shadow-xl);
     display: flex;
@@ -2200,32 +2206,32 @@ footer {
     }
 }
 }
-/* SOFT FOOTER OVERRIDES */
+/* FOOTER OVERRIDES — Dark green bg with light text */
 footer {
-    color: var(--text-dark) !important;
+    color: #F5EFCC !important;
+    background-color: var(--footer-bg) !important;
 }
 footer h3 {
-    color: var(--text-dark) !important;
+    color: #FDFBE7 !important;
 }
 footer p, footer li a, footer .contact-info p {
-    color: var(--text-dark) !important;
-    opacity: 0.9;
+    color: rgba(253, 251, 231, 0.85) !important;
 }
 footer li a:hover {
     color: var(--pink-flower) !important;
 }
 footer .social-icons a {
-    color: var(--text-dark) !important;
-    border-color: rgba(26, 38, 27, 0.2) !important;
+    color: #FDFBE7 !important;
+    border-color: rgba(253, 251, 231, 0.3) !important;
 }
 footer .social-icons a:hover {
     background-color: var(--pink-flower) !important;
-    color: var(--cream-palette) !important;
+    color: #fff !important;
     border-color: var(--pink-flower) !important;
 }
 .footer-bottom {
-    border-top: 1px solid rgba(26, 38, 27, 0.1) !important;
-    color: var(--text-dark) !important;
+    border-top: 1px solid rgba(253, 251, 231, 0.15) !important;
+    color: rgba(253, 251, 231, 0.6) !important;
 }
 
 /* =============================================================
@@ -2267,5 +2273,118 @@ footer .social-icons a:hover {
         flex: unset !important;
         min-width: unset !important;
         width: 100% !important;
+    }
+}
+
+/* BTN OVERRIDES — Pink gradient buttons */
+.btn-whatsapp {
+    background: var(--pink-gradient) !important;
+    color: #fff !important;
+    border: none !important;
+}
+.btn-whatsapp:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+.btn-outline {
+    border-color: var(--pink-flower) !important;
+    color: var(--pink-flower) !important;
+}
+.btn-outline:hover {
+    background: var(--pink-gradient) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+.btn-editorial {
+    color: var(--pink-flower) !important;
+    border-bottom-color: var(--pink-flower) !important;
+}
+.btn-editorial:hover {
+    color: #D65F8A !important;
+}
+
+/* Section tag pink */
+.section-tag {
+    color: var(--pink-flower) !important;
+}
+
+/* Active nav link pink */
+.nav-links a.active-link {
+    color: var(--pink-flower) !important;
+}
+
+/* Logo text replaced with image */
+.logo-text-img {
+    height: 28px;
+    display: block;
+}
+@media (max-width: 768px) {
+    .logo-text-img {
+        height: 22px;
+    }
+}
+
+/* Jurnal & Visi — Clean layout without full-bleed photos */
+.care-section-new {
+    padding: 80px 0;
+    background: var(--section-alt);
+}
+.care-section-new .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+.care-section-new .section-text {
+    flex: 1;
+}
+.care-section-new .section-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+.care-section-new .section-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-section-new {
+    padding: 80px 0;
+    background: var(--pink-light);
+}
+.story-section-new .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+.story-section-new .section-text {
+    flex: 1;
+}
+.story-section-new .section-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.story-section-new .section-logo img {
+    max-width: 300px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .care-section-new .section-inner,
+    .story-section-new .section-inner {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .story-section-new .section-logo img {
+        max-width: 200px;
     }
 }
