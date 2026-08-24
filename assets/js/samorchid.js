@@ -109,7 +109,7 @@
         }
 
         // Pause on hover
-        const heroSliderContainer = document.querySelector('.hero-slider-container');
+        const heroSliderContainer = document.querySelector('.hero-slider-container') || document.querySelector('.hero-split-gallery');
         if (heroSliderContainer) {
             heroSliderContainer.addEventListener('mouseenter', stopAutoSlide);
             heroSliderContainer.addEventListener('mouseleave', startAutoSlide);
