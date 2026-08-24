@@ -8,34 +8,23 @@
    1. DESIGN TOKENS (CSS Variables)
    ---------------------------------------------------------- */
    :root {
-    --pink-flower: #EC7FAA;
+    --pink-flower: #F274AE;
     --pink-light: #FDE8F0;
-    --orange-pastel: #D5B478;
-    --cream-palette: #FDFBE7;
-    --cream-dark: #F5EFCC;
-    --green-natural: #8FA848;
-    --green-dark: #6E8A3A;
+    --pink-card: #F274AE;
+    --pink-gradient: linear-gradient(135deg, #F274AE 0%, #E05694 100%);
+    --yellow-bg-top: #FAF4D4;
+    --yellow-bg-bottom: #F5E0B8;
+    --gradient-bg: linear-gradient(180deg, #FAF4D4 0%, #F5E5BE 50%, #F0DCA8 100%);
+    --green-btn: #7CA832;
+    --green-btn-gradient: linear-gradient(135deg, #8EC643 0%, #6E9628 100%);
+    --green-natural: #7CA832;
+    --green-dark: #587A1E;
     --text-dark: #1A261B;
-    --text-muted: #6B7E5A;
-    --footer-bg: #3D5A1E;
-    --white: var(--cream-palette);
-    --dusty-pink: #FDE8F0;
-    --section-alt: #F8F4D8;
-
-    /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(26, 38, 27, 0.06);
-    --shadow-md: 0 8px 30px rgba(26, 38, 27, 0.08);
-    --shadow-lg: 0 16px 50px rgba(26, 38, 27, 0.12);
-    --shadow-xl: 0 25px 60px rgba(26, 38, 27, 0.18);
-
-    /* Transitions */
-    --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-base: 0.4s var(--ease-luxury);
-    --transition-slow: 0.8s var(--ease-luxury);
-
-    /* Gradients */
-    --gradient-bg: linear-gradient(180deg, #FDFBE7 0%, #F5EFCC 100%);
-    --pink-gradient: linear-gradient(135deg, #EC7FAA, #D65F8A);
+    --text-muted: #5C6E4A;
+    --text-on-pink: #FFFFFF;
+    --footer-bg: #F274AE;
+    --white: #FFFFFF;
+    --section-alt: rgba(250, 244, 212, 0.6);
 }
 
 
@@ -62,8 +51,9 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--text-dark);
-    background: var(--gradient-bg);
-    background-attachment: fixed;
+    background: var(--gradient-bg) !important;
+    background-attachment: fixed !important;
+    min-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -2387,4 +2377,257 @@ footer .social-icons a:hover {
     .story-section-new .section-logo img {
         max-width: 200px;
     }
+}
+
+
+/* =============================================================
+   LINKTREE THEME REVAMP (PINK HEADER, PINK FOOTER, PINK CARDS)
+   ============================================================= */
+
+/* 1. HEADER (PINK) */
+header {
+    background: var(--pink-gradient) !important;
+    box-shadow: 0 4px 20px rgba(242, 116, 174, 0.25) !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+header.scrolled {
+    background: rgba(242, 116, 174, 0.96) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 6px 25px rgba(224, 86, 148, 0.3) !important;
+}
+.nav-links a {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.nav-links a:hover,
+.nav-links a.active-link {
+    color: #FAF4D4 !important;
+}
+.nav-links a::after {
+    background-color: #FAF4D4 !important;
+}
+.logo-link {
+    background: #FFFFFF;
+    padding: 6px 14px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.logo-img-link {
+    background: #FFFFFF;
+    padding: 5px 8px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.logo-img {
+    height: 38px !important;
+}
+.logo-text-img {
+    height: 22px !important;
+}
+
+/* Mobile Menu Button */
+.menu-btn::after {
+    color: #FFFFFF !important;
+    font-weight: 800;
+}
+.mobile-nav {
+    background: var(--pink-gradient) !important;
+}
+.mobile-nav a {
+    color: #FFFFFF !important;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.mobile-nav a.active-link {
+    color: #FAF4D4 !important;
+    font-weight: 800;
+}
+
+/* 2. FOOTER (PINK) */
+footer {
+    background: var(--pink-gradient) !important;
+    color: #FFFFFF !important;
+    padding: 60px 0 30px !important;
+    margin-top: 40px;
+}
+footer h3 {
+    color: #FAF4D4 !important;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+footer p, footer li a, footer .contact-info p {
+    color: #FFFFFF !important;
+    opacity: 0.95;
+}
+footer li a:hover {
+    color: #FAF4D4 !important;
+    text-decoration: underline;
+}
+footer .social-icons a {
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+footer .social-icons a:hover {
+    background-color: var(--green-btn) !important;
+    color: #FFFFFF !important;
+    border-color: var(--green-btn) !important;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* 3. CARDS (PINK BACKGROUND WITH WHITE TEXT) */
+.category-card,
+.product-card,
+.news-card,
+.journal-card,
+.team-card,
+.value-card,
+.tech-feature-card {
+    background: var(--pink-gradient) !important;
+    color: #FFFFFF !important;
+    border-radius: 20px !important;
+    box-shadow: 0 12px 30px rgba(242, 116, 174, 0.28) !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    transition: transform 0.4s var(--ease-luxury), box-shadow 0.4s var(--ease-luxury) !important;
+}
+.category-card:hover,
+.product-card:hover,
+.news-card:hover,
+.journal-card:hover,
+.value-card:hover,
+.tech-feature-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 18px 40px rgba(242, 116, 174, 0.4) !important;
+}
+
+/* Card typography (white) */
+.category-card h3,
+.product-card .card-body h3,
+.news-card .card-body h3,
+.journal-card .card-body h3,
+.team-card h4,
+.value-card h3,
+.tech-feature-card h3 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+.category-card p,
+.product-card .card-body p,
+.news-card .card-body p,
+.journal-card .card-body p,
+.team-card p,
+.value-card p,
+.tech-feature-card p {
+    color: #FFFFFF !important;
+    opacity: 0.95 !important;
+}
+.card-category,
+.news-date,
+.news-card .card-date,
+.journal-date,
+.team-card span {
+    color: #FAF4D4 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.card-price {
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    font-size: 22px !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* 4. BUTTONS (GREEN BUTTONS WITH WHITE TEXT) */
+.btn-whatsapp,
+.btn-primary,
+.btn-outline,
+.btn-editorial,
+.card-actions a,
+.read-more {
+    background: var(--green-btn-gradient) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    padding: 12px 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    box-shadow: 0 6px 20px rgba(110, 150, 40, 0.35) !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+}
+.btn-whatsapp:hover,
+.btn-primary:hover,
+.btn-outline:hover,
+.btn-editorial:hover,
+.card-actions a:hover,
+.read-more:hover {
+    transform: translateY(-2px) !important;
+    filter: brightness(1.08) !important;
+    box-shadow: 0 10px 25px rgba(110, 150, 40, 0.45) !important;
+    color: #FFFFFF !important;
+}
+
+/* Section Tag and Titles */
+.section-tag {
+    color: #D65F8A !important;
+    font-weight: 800 !important;
+    letter-spacing: 2px !important;
+}
+.section-title, h1, h2 {
+    color: var(--text-dark) !important;
+}
+.section-title strong, h1 strong, h2 strong {
+    color: #E05694 !important;
+}
+
+/* Sections - Unified Yellow-Cream Background (No Pink Blocks) */
+section,
+.section-padding,
+.care-section-new,
+.story-section-new,
+.category-section,
+.news-section {
+    background: transparent !important;
+}
+.care-section-new .section-inner,
+.story-section-new .section-inner {
+    background: var(--pink-gradient);
+    color: #FFFFFF !important;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(242, 116, 174, 0.28);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+.care-section-new h2,
+.story-section-new h2,
+.care-section-new p,
+.story-section-new p,
+.care-section-new .section-tag,
+.story-section-new .section-tag {
+    color: #FFFFFF !important;
+}
+.care-section-new strong,
+.story-section-new strong {
+    color: #FAF4D4 !important;
+}
+.care-section-new .section-tag,
+.story-section-new .section-tag {
+    color: #FAF4D4 !important;
+}
+.story-section-new .section-logo img {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
